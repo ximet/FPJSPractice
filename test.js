@@ -1,3 +1,4 @@
 const { K, S, I } = require('./combinators/combinators.js');
+const { add } = require('./number/number.js');
 
-console.error(S(K)(K) === I())
+console.error(add(5)(3))
