@@ -1,4 +1,6 @@
-// reduce :: (a -> b) -> b -> [a] -> b 
+const { Y } = require('../combinators/combinators.js');
+// reduce :: (a -> b) -> b -> [a] -> b
+
 const reduce = f => y => ([x, ...xs]) => {
   if(x === undefined) {
     return y;
@@ -8,6 +10,10 @@ const reduce = f => y => ([x, ...xs]) => {
   }
 }
 
+const reduce = f => Y(g => y => xs => length(xs) < 1 ? y : g(f(y)(head(xs)))(tail(xs)));
+
+const map = f => xs => xs.map(f); //for carryng
+
 module.exports = {
-  reduce
+  reduce, map
 }
