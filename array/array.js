@@ -15,7 +15,8 @@ const reduce = f => Y(g => y => xs => length(xs) < 1 ? y : g(f(y)(head(xs)))(tai
 const map = f => xs => xs.map(f); //for carryng
 const cons = a => b => [a, ...b];
 const build = g => g(cons)([]);
-
+const foldr = f => n => xs => xs.reduceRight((acc, next) => f(next)(acc), n);
+const map = f => xs => build(c => n => foldr(f.map(c))(n)(xs));
 
 module.exports = {
   reduce, map
